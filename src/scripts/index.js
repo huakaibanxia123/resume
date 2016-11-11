@@ -7,6 +7,7 @@ require('zepto-modules/touch');
   var IScroll=require('./components/iscroll/iscroll');
 var Swiper=require('./components/swiper/swiper-3.3.1.min');
 var swiperAnimate=require('./components/swiper/swiper.animate1.0.2.min');
+
 var  solid=require('./components/iscroll/iscroll');
 var swiper = new Swiper('.swiper-container',
      {
@@ -19,9 +20,18 @@ var swiper = new Swiper('.swiper-container',
   } 
   });
 module.exports=$;
-$('#myIscroll').hide();
+if($('.btns').size>0)
+{
+     $('#myIscroll').show();
+$('.swiper-container').hide();
+}
+else{
+    $('#myIscroll').hide();
 $('.swiper-container').show();
+}
+
 $('#btn').tap(function(){
+    $(this).addClass('btns')
     $('#myIscroll').show();
 $('.swiper-container').hide();
  
@@ -37,7 +47,7 @@ $.ajax({
             for(var j=0;j<data.length;j++){
                 $('#box').append("<li class='list_1'><div class='list_2'></div></li>")
                 for(var i in data[j]){
-                $('.list_1 .list_2').last().append("<div>"+data[j][i]+"</div>")
+                $('.list_1 .list_2').last().append("<div><p>"+i+"</p>"+data[j][i]+"</div>")
             }
             }
             
@@ -48,30 +58,61 @@ $.ajax({
 
 })
 $('#personel li').tap(function () {
+    var uls;
     // body...
-    $('#header').html($(this).html())
-    /*$.ajax({
-        url:'/api/skill',
+    $('#header #topic').html($(this).html())
+    if($(this).html()=="项目")
+    {
+        uls='/api/project';
+    }
+else if($(this).html()=="经历")
+{
+  uls='/api/work';  
+}
+else if($(this).html()=="我的")
+{
+  uls='/api/my';  
+}
+else{
+    uls='/api/skill';
+}
+   $.ajax({
+        url:uls,
         //data:obj,
 
         type:'POST',
-        success:function(data){*/
+        success:function(data){
+            $('#box').html('')
+            for(var j=0;j<data.length;j++){
 
- myScroll = new IScroll('#wrapper', { mouseWheel: true });
-//alert(data)
+                $('#box').append("<li class='list_1'><div class='list_2'></div></li>")
+                for(var i in data[j]){
+                    if(i=='image')
+                    {
+                         $('.list_1').last().append("<img src='"+data[j][i]+"'/>")
+                    }
+                    else{
+                        $('.list_1 .list_2').last().append("<div><p>"+i+"</p>"+data[j][i]+"</div>")
+                    }
+                
+            }
+            }
+            
+             myScroll = new IScroll('#wrapper', { mouseWheel: true });
+    document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+            }
 
-document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
-      /*  }
-    })*/
+
+})
 })
 })
 var OC=document.getElementById('cvs');
 var Ac=OC.getContext('2d');
 Ac.font="bold 50px '黑体'";
 Ac.textAligh='center';
-bg=Ac.createLinearGradient(100,100,300,300)
+bg=Ac.createLinearGradient(40,10,250,250)
 bg.addColorStop(0.3,"yellow")
 bg.addColorStop(0.5,"green")
 bg.addColorStop(0.6,"pink")
 Ac.fillStyle=bg;
-Ac.fillText('个人简历',60,200 )
+Ac.fillText('个人简历',40,150 )

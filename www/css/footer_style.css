@@ -11,4 +11,9 @@
   text-align: center;
   color: #fff;
   list-style: none;
-  font-size: 18px; }
+  font-size: 18px;
+  line-height: 48px; }
+
+.list_1 img {
+  width: 100%;
+  height: auto; }

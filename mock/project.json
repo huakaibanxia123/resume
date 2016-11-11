@@ -1,38 +1,38 @@
 ﻿[
 	{
-		"category":"酒仙网———web版",
-		"name":"html布局、css、js修饰、swiper、iscroll等插件以及bootstrap、jquary框架的使用的运用",
-		"url":"3个人",
-		"image":"images/horays.png",
-		"description":"学习到了工作中会有一些可以快速的方法，如：插件、框架的使用，学到了‘good beginning is half done’的真谛，认识到了项目计划的重要性",
-		"detail":"项目耗时3周，主要处理前端页面及程序嵌套，当时并未要求移动端适配，故该网站只适应于PC端应用",
-		"tech":"Html、Css2、javascript等"
+		"项目":"拍鞋网———web版",
+		"项目运用":"html布局、css、js修饰、swiper、iscroll等插件以及bootstrap、jquary框架的使用的运用",
+		"项目人员数":"3个人",
+		"image":"./images/0188aa51f8198618939842ba4eed2e738ad4e641.jpg",
+		"项目经验":"学习到了工作中会有一些可以快速的方法，如：插件、框架的使用，学到了‘good beginning is half done’的真谛，认识到了项目计划的重要性",
+		"项目完善":"项目耗时3周，主要处理前端页面及程序嵌套，当时并未要求移动端适配，故该网站只适应于PC端应用",
+		"主要技术":"Html、Css2、javascript等"
 	},
 	{
-		"category":"酒仙网———移动版",
-		"name":"Html5、Css3、zepto、swiper、iscroll等插件的运用",
-		"url":"http://www.zc511.com/",
-		"image":"images/zc511.png",
-		"description":"认识到了html5、css3技术的方便之处，同时他们的兼容性有时很大的问题，所以其较适合与移动端,用百分百布局方法实现",
-		"detail":"长期维护，功能迭代，包括平台整体UI改进以及功能模块的增加与性能的优化",
-		"tech":"html5、css3、Javascript、zepto、touch等"
+		"项目":"酒仙网———移动版",
+		"项目运用":"Html5、Css3、zepto、swiper、iscroll等插件的运用",
+		"项目人员数":"3个人",
+		"image":"./images/123114050.jpg",
+		"项目经验":"认识到了html5、css3技术的方便之处，同时他们的兼容性有时很大的问题，所以其较适合与移动端,用百分百布局方法实现",
+		"项目完善":"长期维护，功能迭代，包括平台整体UI改进以及功能模块的增加与性能的优化",
+		"主要技术":"html5、css3、Javascript、zepto、touch等"
 	},
 	{
-		"category":"平台门户",
-		"name":"网上药博会",
-		"url":"http://www.53118.com/",
-		"images":"images/53118.png",
-		"description":"网上药博会，网上药品及药企展览平台",
-		"detail":"项目初建耗时4月，从需求到页面设计，从页面设计到前端实现，从页面实现到功能开发和集成，从本地测试到平台上线等全程处理",
-		"tech":"Html、Css2、Javascript、Jquery、Coldfusion等"
+		"项目类别":"平台门户",
+		"项目名称":"网上药博会",
+		"项目人员数":"3个人",
+		"image":"./images/p1.jpg",
+		"项目描述":"网上药博会，网上药品及药企展览平台",
+		"项目详情":"项目初建耗时4月，从需求到页面设计，从页面设计到前端实现，从页面实现到功能开发和集成，从本地测试到平台上线等全程处理",
+		"主要技术":"Html、Css2、Javascript、Jquery、Coldfusion等"
 	},
 	{
-		"category":"移动平台",
-		"name":"政教通",
-		"url":"http://www.zhengjiaotong.com/",
-		"images":"images/zhengjiaotong.png",
-		"description":"儿童健康成长护航者",
-		"detail":"项目初建耗时3月，主要包括数据支撑平台的建设、移动端Hybrid模式的应用及开发",
-		"tech":"Html5、Css3、Jquery、AngularJs、Java等"
+		"项目类别":"移动平台",
+		"项目名称":"政教通",
+		"项目人员数":"3个人",
+		"image":"./images/p2.jpg",
+		"项目描述":"儿童健康成长护航者",
+		"项目详情":"项目初建耗时3月，主要包括数据支撑平台的建设、移动端Hybrid模式的应用及开发",
+		"主要技术":"Html5、Css3、Jquery、AngularJs、Java等"
 	}
 ]

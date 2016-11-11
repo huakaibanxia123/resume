@@ -12,4 +12,169 @@ height:100%;
 		color:#fff;
 		list-style:none;
 		font-size:18px;
+		line-height:48px;
+
 	}
+//.list_1{display:flex;align-items:center;}
+.list_1 img{width:100%;height:auto;}
+//.list_1 .list_1{width:60%;}
+
+
+
+
+
+
+$('#personel li').tap(function () {
+	    var uls;
+	    // body...
+	    $('#header #topic').html($(this).html())
+	    if($(this).html()=="项目")
+	    {
+            uls='http://1056269129.applinzi.com/www/mock/project.json';
+	    }
+	else if($(this).html()=="经历")
+	{
+	  uls='http://1056269129.applinzi.com/www/mock/work.json';  
+	}
+	else if($(this).html()=="我的")
+	{
+	  uls='http://1056269129.applinzi.com/www/mock/my.json';  
+	}
+	else{
+	    uls='http://1056269129.applinzi.com/www/mock/skill.json';
+	}
+	   $.ajax({
+	        url:uls,
+	        //data:obj,
+
+	        type:'POST',
+	        success:function(data){
+	            $('#box').html('')
+	            for(var j=0;j<data.length;j++){
+
+	                $('#box').append("<li class='list_1'><div class='list_2'></div></li>")
+	                for(var i in data[j]){
+	                    if(i=='image')
+	                    {
+                            $('.list_1').last().append("<img src='http://1056269129.applinzi.com/www/"+data[j][i]+"'/>")
+	                    }
+	                    else{
+	                        $('.list_1 .list_2').last().append("<div><p>"+i+"</p>"+data[j][i]+"</div>")
+	                    }
+	                
+	            }
+	            }
+	            
+	             myScroll = new IScroll('#wrapper', { mouseWheel: true });
+	    document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+	            }
+
+
+	})
+	})
+	})
+	var OC=document.getElementById('cvs');
+	var Ac=OC.getContext('2d');
+	Ac.font="bold 50px '黑体'";
+	Ac.textAligh='center';
+	bg=Ac.createLinearGradient(40,10,250,250)
+	bg.addColorStop(0.3,"yellow")
+	bg.addColorStop(0.5,"green")
+	bg.addColorStop(0.6,"pink")
+	Ac.fillStyle=bg;
+	Ac.fillText('个人简历',40,150 )
+    
+           
+  /*
+   * 注意：
+   * 1. 所有的JS接口只能在公众号绑定的域名下调用，公众号开发者需要先登录微信公众平台进入“公众号设置”的“功能设置”里填写“JS接口安全域名”。
+   * 2. 如果发现在 Android 不能分享自定义内容，请到官网下载最新的包覆盖安装，Android 自定义分享接口需升级至 6.0.2.58 版本及以上。
+   * 3. 常见问题及完整 JS-SDK 文档地址：http://mp.weixin.qq.com/wiki/7/aaa137b55fb2e0456bf8dd9148dd613f.html
+   *
+   * 开发中遇到问题详见文档“附录5-常见错误及解决办法”解决，如仍未能解决可通过以下渠道反馈：
+   * 邮箱地址：weixin-open@qq.com
+   * 邮件主题：【微信JS-SDK反馈】具体问题
+   * 邮件内容说明：用简明的语言描述问题所在，并交代清楚遇到该问题的场景，可附上截屏图片，微信团队会尽快处理你的反馈。
+   */
+    $.post( "http://1056269129.applinzi.com/php/getsign.php",{
+    url:window.location.href
+    },function(data){
+          pos=data.indexOf('}');
+        dataStr=data.substring(0,pos+1);
+        objData=JSON.parse(dataStr);
+        // alert( objData.url);
+        //console.log(dataStr);
+    
+    
+  wx.config({
+    debug: true,
+    appId:objData.appId,
+    timestamp: objData.timestamp,
+    nonceStr:objData.nonceStr,
+    signature:objData.signature,
+    jsApiList: [
+      // 所有要调用的 API 都要加到这个列表中
+      'getLocation','chooseImage'
+    ]
+  });
+   
+       
+        
+        
+         wx.ready(function () {
+    // 在这里调用 API
+         $('.tp1').first().click(function(){
+         wx.chooseImage({
+    count: 1, // 默认9
+    sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
+    sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
+    success: function (res) {
+        var localIds = res.localIds; // 返回选定照片的本地ID列表，localId可以作为img标签的src属性显示图片
+    }
+});    
+
+        })  
+             
+             
+             
+        $('.tp1').last().click(function(){     
+       wx.getLocation({
+    type: 'wgs84', // 默认为wgs84的gps坐标，如果要返回直接给openLocation用的火星坐标，可传入'gcj02'
+    success: function (res) {
+        var latitude = res.latitude; // 纬度，浮点数，范围为90 ~ -90
+        var longitude = res.longitude; // 经度，浮点数，范围为180 ~ -180。
+        var speed = res.speed; // 速度，以米/每秒计
+        var accuracy = res.accuracy;
+        							// 位置精度
+        alert('getLocation')
+    }
+    });
+        
+
+        })  
+        
+        
+        
+        
+        
+});
+      
+  });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" src='js/index.js'></script>
+     <script src="http://lib.sinaapp.com/js/jquery/1.9.1/jquery-1.9.1.min.js"></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
